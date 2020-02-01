@@ -14,10 +14,14 @@ import { SecureInnerPagesGuard } from "../../shared/guard/secure-inner-pages.gua
 import { SearchComponent } from 'src/app/search/search.component';
 import { CompanyDashboardComponent } from 'src/app/company-dashboard/company-dashboard.component';
 import { EditProfileCompanyComponent } from 'src/app/edit-profile-company/edit-profile-company.component';
-import { NewsearchComponent } from '../../newsearch/newsearch.component';
 
 import { SignupcompanyComponent } from 'src/app/signupcompany/signupcompany.component';
 import { SearchCompanyComponent } from 'src/app/search-company/search-company.component';
+
+import { NewsearchComponent } from '../../newsearch/newsearch.component';
+
+// import { SignupcompanyComponent } from 'src/app/signupcompany/signupcompany.component';
+// import { SearchCompanyComponent } from 'src/app/search-company/search-company.component';
 import { StdUsrProfileComponent } from 'src/app/std-usr-profile/std-usr-profile.component';
 
 // Include route guard in routes array
