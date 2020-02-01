@@ -23,6 +23,7 @@ import { FormsModule } from '@angular/forms';
 
 // needed for auto complete
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 
 //material functions
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
@@ -66,7 +67,8 @@ import { SignupcompanyComponent } from './signupcompany/signupcompany.component'
     FormsModule,
     MatAutocompleteModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    HttpClientModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

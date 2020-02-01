@@ -1,14 +1,53 @@
-<div class="col-md-4 offset-md-1">
-    <div class="input-group">
-      <input type="text" class="form-control" [(ngModel)]="searchValue" [ngModelOptions]="{standalone: true}" placeholder="Search by name..." >
-      <!-- (keyup)="searchByName()"> -->
-      <div class="input-group-append">
-        <span class="input-group-text"><ion-icon class="icon" name="search"></ion-icon></span>
+<nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+  <a class="navbar-brand col-sm-3 col-md-2 mr-0" routerLink="/register-student">
+    <img class="brand-logo" src="assets/logo-JobBoB.svg" alt="positronX.io Logo"> 
+    <span class="dasboard-text">Search</span>
+  </a>
+</nav>
+<p>editprofile works!</p>
+<div class="container-fluid">
+  <div class="row">  
+    <!-- Main content -->
+    
+      <main>       
+          <div class="inner-adjust">  
+                  <div class="pt-3 pb-2 mb-3 border-bottom">
+                  <h1 class="h2">
+                    <a>Search : </a>
+
+                   
+                    <!-- added just before server side -->
+
+                    <button type="button" class="btn btn-primary" (click)="btnBackUser();"><i class="flex-md-nowrap"></i> Back</button>
+                  
+                  </h1>
+                </div>
+
+              </div>
+          </main>
       </div>
-    </div>
   </div>
 
-
-
-
-  
+  <div>
+    <a>gfjbnjgngb</a>
+    <mat-form-field>
+      <input placeholder="Search" aria-label="State" [matAutocomplete]="auto" [formControl]="searchMoviesCtrl">
+      <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+        <mat-option *ngIf="isLoading" class="is-loading">Loading...</mat-option>
+        <ng-container *ngIf="!isLoading">
+          <mat-option *ngFor="let movie of filteredMovies" [value]="movie.Title">
+            <span><b>{{movie.Title}}</b> ({{movie.Year}})</span>
+          </mat-option>
+        </ng-container>
+      </mat-autocomplete>
+    </mat-form-field>
+   
+    <br>
+    
+    <ng-container *ngIf="errorMsg; else elseTemplate">
+      {{errorMsg}}
+    </ng-container>
+    <ng-template #elseTemplate>
+      <h5>Selected Value: {{searchMoviesCtrl.value}}</h5>
+    </ng-template>
+  </div>

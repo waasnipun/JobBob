@@ -6,4 +6,10 @@ button {
 
   input:focus::placeholder {
     color: transparent;
-  }  
+  } 
+
+  /* .mat-form-field{margin-left: 30%;} */
+
+  .mat-option{
+    margin-left: 10px;
+  }
