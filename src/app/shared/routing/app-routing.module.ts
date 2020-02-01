@@ -16,6 +16,7 @@ import { CompanyDashboardComponent } from 'src/app/company-dashboard/company-das
 import { EditProfileCompanyComponent } from 'src/app/edit-profile-company/edit-profile-company.component';
 import { SignupcompanyComponent } from 'src/app/signupcompany/signupcompany.component';
 import { SearchCompanyComponent } from 'src/app/search-company/search-company.component';
+import { StdUsrProfileComponent } from 'src/app/std-usr-profile/std-usr-profile.component';
 
 // Include route guard in routes array
 const routes: Routes = [
@@ -27,6 +28,7 @@ const routes: Routes = [
   { path: 'editprofile', component: EditprofileComponent },
   { path: 'search', component: SearchComponent },
   { path: 'searchCompany', component: SearchCompanyComponent },
+  { path: 'StdUsrProfile', component: StdUsrProfileComponent },
   //{ path: 'SearchByCompanyComponent', component: SearchByCompanyComponent },
   { path: 'editprofilecompany', component: EditProfileCompanyComponent },
   { path: 'companydashboard', component: CompanyDashboardComponent },

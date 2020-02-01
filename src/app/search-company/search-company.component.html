@@ -13,10 +13,10 @@
       
       <ul>   
         <li  *ngFor = "let student of students">
-          <a  href={{student.detailMail}}> 
+          <h1>{{student.id}}</h1>
           <!-- <button type="button">{{ student.firstName }} &nbsp;{{student.secondName}}</button> -->
-          <button type="button" class="btn btn-primary" (click)="btnBackUser();"><i class="flex-md-nowrap"></i> {{ student.firstName }} {{student.secondName}}</button>
-          </a>
+          <button type="button" class="btn btn-primary" (click)="btnClick(student);"><i class="flex-md-nowrap"></i> {{ student.firstName }} {{student.secondName}}</button>
+          <!-- </a> -->
           <p></p>
           <!-- {{ student.firstName }} &nbsp;{{student.secondName}} -->
         </li>
