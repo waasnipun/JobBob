@@ -14,10 +14,13 @@ import { SecureInnerPagesGuard } from "../../shared/guard/secure-inner-pages.gua
 import { SearchComponent } from 'src/app/search/search.component';
 import { CompanyDashboardComponent } from 'src/app/company-dashboard/company-dashboard.component';
 import { EditProfileCompanyComponent } from 'src/app/edit-profile-company/edit-profile-company.component';
-import { SignupcompanyComponent } from 'src/app/signupcompany/signupcompany.component';
-import { SearchCompanyComponent } from 'src/app/search-company/search-company.component';
+import { SignupcompanyComponent } from '../../signupcompany/signupcompany.component';
+import { SearchCompanyComponent } from '../../search-company/search-company.component';
+import { NewsearchComponent } from '../../newsearch/newsearch.component';
+
 
 // Include route guard in routes array
+
 const routes: Routes = [
   { path: '', redirectTo: '/sign-in', pathMatch: 'full'},
   { path: 'sign-in', component: SignInComponent, canActivate: [SecureInnerPagesGuard]},
@@ -27,6 +30,8 @@ const routes: Routes = [
   { path: 'editprofile', component: EditprofileComponent },
   { path: 'search', component: SearchComponent },
   { path: 'searchCompany', component: SearchCompanyComponent },
+  {path: 'newsearch' , component: NewsearchComponent},
+  
   //{ path: 'SearchByCompanyComponent', component: SearchByCompanyComponent },
   { path: 'editprofilecompany', component: EditProfileCompanyComponent },
   { path: 'companydashboard', component: CompanyDashboardComponent },

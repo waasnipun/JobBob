@@ -1,0 +1,70 @@
+<nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+    <a class="navbar-brand col-sm-3 col-md-2 mr-0" routerLink="/register-student">
+      <img class="brand-logo" src="assets/logo-JobBoB.svg" alt="positronX.io Logo"> 
+      <span class="dasboard-text">Search</span>
+    </a>
+</nav>
+
+<p>editprofile works!</p>
+
+  <div class="container-fluid">
+    <div class="row">  
+      <!-- Main content -->
+      
+        <main>       
+            <div class="inner-adjust">  
+                    <div class="pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="h2">
+                      <a>Search : </a>
+                      <button id='back' type="button" class="btn btn-primary" (click)="btnBackUser();"><i class="flex-md-nowrap"></i> Back</button>
+                    
+                    </h1>
+                  </div>
+
+                </div>
+        </main>
+    </div>
+
+  </div>
+
+<div>
+this is new divide
+</div>
+
+<div id='select' >
+
+  <!-- <div style="width: 40%; float:left" >
+    Select your interest :
+    <select [(ngModel)]="family" (change)="filterExact('family', family)">
+      <option value="bird">Bird</option>
+      <option value="mammal">Mammal</option>
+      <option value="fish">Fish</option>
+    </select>
+    filter remove button ????
+    <button *ngIf="family" (click)="removeFilter('family')"> Remove filter </button>
+ </div> -->
+ 
+ <!-- <div style="width: 60%; float:right">
+    #right start here
+    #text type filter boxx
+    <input type="text"
+    [(ngModel)]="weight"
+    (change)="filterGreaterThan('weight', weight)">
+
+weight remove filter button?/
+<button *ngIf="weight" (click)="removeFilter('weight')">Remove filter</button>
+
+ </div> -->
+ <input type="text" class="form-control" [(ngModel)]="searchValue" [ngModelOptions]="{standalone: true}" placeholder="Search by name..." (keyup)="searchByName()">
+      
+</div>
+
+<div>
+  <ul>   
+    <li  *ngFor = "let student of students">
+
+      <button type="button">{{ student.companyName }} &nbsp;{{student.Op}}</button>
+
+    </li>
+  </ul>
+</div>
