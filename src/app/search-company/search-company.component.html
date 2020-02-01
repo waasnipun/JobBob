@@ -5,8 +5,20 @@
     </a>
   </nav>
 
-  <ul>
-    <li  *ngFor = "let student of students">
-      {{ student.email}}
-    </li>
-  </ul>
+  <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+    <div class="inner-adjust">
+
+      <div class="pt-3 pb-2 mb-3 border-bottom">
+        <h1>Student names</h1>
+      
+      <ul>   
+        <li  *ngFor = "let student of students">
+          <button type="button">{{ student.firstName }} &nbsp;{{student.secondName}}</button>
+          <button type="button" class="btn btn-primary" (click)="btnBackUser();"><i class="flex-md-nowrap"></i> Back</button>
+          <p></p>
+          <!-- {{ student.firstName }} &nbsp;{{student.secondName}} -->
+        </li>
+      </ul>
+      </div>
+    </div>
+  </main>

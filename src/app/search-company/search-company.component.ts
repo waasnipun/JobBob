@@ -21,9 +21,9 @@ export class SearchCompanyComponent implements OnInit {
   ngOnInit() {
 
     this.db.collection('students').valueChanges()
-    .subscribe(val =>{
+    .subscribe(student =>{
       // this.dictionary = val[0];
-      this.students = val;
+      this.students = student;
       
     });
 
