@@ -3,10 +3,11 @@ import { Router } from '@angular/router';
 import { AuthService } from '../shared/services/auth.service';
 import {Location} from '@angular/common';
 import { User, details } from "../shared/services/user";
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, NgForm } from '@angular/forms';
 import { AngularFireAuth } from "@angular/fire/auth";
-import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
+import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-editprofile',
   templateUrl: './editprofile.component.html',
@@ -20,7 +21,13 @@ export class EditprofileComponent implements OnInit {
   displayName: any;
   photoURL: any;
   emailVerified: any;
-  firstNameIN:any;
+  firstName:string;
+  secondName:string;
+  University:string;
+  mobile:string;
+  Description:string;
+  Details : any = new details();
+  submitted: any;
   constructor(public router: Router,
     public afs: AngularFirestore,   // Inject Firestore service
     public afAuth: AngularFireAuth, // Inject Firebase auth service  
@@ -31,20 +38,27 @@ export class EditprofileComponent implements OnInit {
         this.getData();
      }) 
     }
-
-  ngOnInit() {
-    
+  ngOnInit() {    
     
   }
   btnBackUser= function () {
     this._location.back();
   };
+
+  
+  
   getData(){
     this.afs.collection('students').doc(this.userPrimaryData).valueChanges().subscribe((response) => {
       if (response) {
-        this.userData = response;
+        this.Details = response;
+        this.firstName = this.Details.firstName;
+        this.secondName = this.Details.secondName;
+        this.mobile = this.Details.mobile;
+        this.University = this.Details.university;
+        this.Description = this.Details.Description;
+        
         this.email = this.userData.email;
-        localStorage.setItem('user', JSON.stringify(this.userData));
+        localStorage.setItem('user', JSON.stringify(this.Details));
         JSON.parse(localStorage.getItem('user'));
       } else {
         localStorage.setItem('user', null);
@@ -58,34 +72,44 @@ export class EditprofileComponent implements OnInit {
  // this.updatePolicy();
   }
 
-onClickMe= function () {    
-  // this.userdetails.firstName = ((document.getElementById("form-control-1") as HTMLInputElement).value);
-  // this.userdetails.secondName = ((document.getElementById("form-control-2") as HTMLInputElement).value);
-  // this.userdetails.university = ((document.getElementById("form-control-3") as HTMLInputElement).value);
-  // this.userdetails.mobile = ((document.getElementById("form-control-9") as HTMLInputElement).value);
-  // var   retypePassword= ((document.getElementById("form-control-5") as HTMLInputElement).value);
-  // var   email= ((document.getElementById("form-control-6") as HTMLInputElement).value);
-  // var   companyType= ((document.getElementById("form-control-9") as HTMLInputElement).value);
-  this.updatePolicy();
-};
-updatePolicy(){
+
+onClickMe = function (){
+     this.submitted = true;
+     this.firstName = ((document.getElementById("form-control-1") as HTMLInputElement).value);
+     this.secondName = ((document.getElementById("form-control-2") as HTMLInputElement).value);
+     this.University = ((document.getElementById("form-control-3") as HTMLInputElement).value);
+     this.mobile = ((document.getElementById("form-control-9") as HTMLInputElement).value);
+     this.Description = ((document.getElementById("form-control-8") as HTMLInputElement).value);
+     this.Details.firstName = this.firstName;
+     this.Details.secondName = this.secondName;
+     this.Details.University = this.University;
+     this.Details.mobile = this.mobile;
+     this.Details.Description = this.Description;
+    //this.createCustomer(details);
     this.afs.collection("students").doc(this.userPrimaryData).update({
-      firstName: "nipuna",
-      secondName: "Wfsaas",
-      university:"Uom",
-      mobile:"0766782269",
+     firstName: String(this.Details.firstName),
+    secondName: String(this.Details.secondName),
+    mobile: String(this.Details.mobile),
+    university: String(this.Details.University),
+    Description:String(this.Details.Description)
     })
+    //return this.afs.doc(this.userPrimaryData).update(details);
     .then(function() {
         console.log("Document successfully written!");
     })
     .catch(function(error) {
         console.error("Error writing document: ", error);
     });
+       this.router.navigate(['../../dashboard']);
+    //this.db.collection('students').doc(this.userPrimaryData).set(details);
 
   // this.tempID = this.userData.uid;
   // //delete policy.uid;
   // this.firestore.doc('students/' + this.tempID).update(policy);
 }
+
+
+
 
 
 }

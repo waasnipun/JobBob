@@ -10,6 +10,7 @@ export class User {
 export class details{
    firstName: string;
    secondName: string;
-   university: string;
+   University: string;
    mobile: string;
+   description:string;
 }

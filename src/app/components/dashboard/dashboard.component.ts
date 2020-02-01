@@ -13,7 +13,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 export class DashboardComponent implements OnInit {
   userData: any;
   userPrimaryData: User["uid"];
-  
+  dullVar: any;
   constructor(
     public authService: AuthService,
     public router: Router,
@@ -30,6 +30,9 @@ export class DashboardComponent implements OnInit {
    }
   btnClick= function () {
     this.router.navigate(['../../editprofile']);
+    };
+  btnSearch = function(){
+      this.router.navigate(['../../search']);
     };
 
   getData(){

@@ -19,10 +19,12 @@ import { AngularFireModule } from "@angular/fire";
 import { AngularFireAuthModule } from "@angular/fire/auth";
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
+import { FormsModule } from '@angular/forms';
 
 // Auth service
 import { AuthService } from "./shared/services/auth.service";
 import { EditprofileComponent } from './editprofile/editprofile.component';
+import { SearchComponent } from './search/search.component';
 
 
 @NgModule({
@@ -34,6 +36,8 @@ import { EditprofileComponent } from './editprofile/editprofile.component';
     ForgotPasswordComponent,
     VerifyEmailComponent,
     EditprofileComponent,
+    SearchComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -41,7 +45,8 @@ import { EditprofileComponent } from './editprofile/editprofile.component';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AngularFirestoreModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

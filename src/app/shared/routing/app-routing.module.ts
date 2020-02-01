@@ -11,6 +11,7 @@ import { EditprofileComponent } from '../../editprofile/editprofile.component';
 // Import canActivate guard services
 import { AuthGuard } from "../../shared/guard/auth.guard";
 import { SecureInnerPagesGuard } from "../../shared/guard/secure-inner-pages.guard";
+import { SearchComponent } from 'src/app/search/search.component';
 
 // Include route guard in routes array
 const routes: Routes = [
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'register-user', component: SignUpComponent,canActivate: [SecureInnerPagesGuard]},
   { path: 'dashboard', component: DashboardComponent },
   { path: 'editprofile', component: EditprofileComponent },
+  { path: 'search', component: SearchComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent, canActivate: [SecureInnerPagesGuard] },
   { path: 'verify-email-address', component: VerifyEmailComponent, canActivate: [SecureInnerPagesGuard] }
 ];

@@ -5,3 +5,15 @@
     left: 0;
     z-index: 9;
 }
+
+
+.wrapper {
+    text-align: left;
+    margin:auto;
+    
+}
+
+.button {
+    position: absolute;
+    margin-left: 1000px; 
+}
