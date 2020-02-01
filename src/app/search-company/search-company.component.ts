@@ -1,6 +1,7 @@
 import { Component, OnInit, Injectable } from '@angular/core';
 import { AngularFirestore  } from '@angular/fire/firestore';
-
+import { Router } from "@angular/router";
+import {Location} from '@angular/common';
 @Component({
   selector: 'app-search-company',
   templateUrl: './search-company.component.html',
@@ -14,10 +15,13 @@ import { AngularFirestore  } from '@angular/fire/firestore';
 export class SearchCompanyComponent implements OnInit {
   students : any[];
   dictionary: {  } ;
-  constructor(private db: AngularFirestore){
+  constructor(private db: AngularFirestore,public router: Router,private _location: Location){
     
   }
-
+  btnClick= function () {
+    this.router.navigate(['../../StdUsrProfile']);
+    };
+  
   ngOnInit() {
 
     this.db.collection('students').valueChanges()
