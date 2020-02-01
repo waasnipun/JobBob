@@ -1,15 +1,36 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Injectable } from '@angular/core';
+import { AngularFirestore  } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-search-company',
   templateUrl: './search-company.component.html',
   styleUrls: ['./search-company.component.css']
 })
-export class SearchCompanyComponent implements OnInit {
 
-  constructor() { }
+@Injectable({
+    providedIn: 'root'
+})
+
+export class SearchCompanyComponent implements OnInit {
+  students : any[];
+  dictionary: {  } ;
+  constructor(private db: AngularFirestore){
+    
+  }
 
   ngOnInit() {
-  }
+
+    this.db.collection('students').valueChanges()
+    .subscribe(student =>{
+      // this.dictionary = val[0];
+      this.students = student;
+      
+    });
+
+    this.db.collection('students' ).valueChanges()
+    .subscribe(val => console.log(val)); 
+  } 
+    
+  
 
 }
