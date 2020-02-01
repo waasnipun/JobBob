@@ -15,10 +15,15 @@ import {Location} from '@angular/common';
 export class SearchCompanyComponent implements OnInit {
   students : any[];
   dictionary: {  } ;
-  constructor(private db: AngularFirestore,public router: Router,private _location: Location){
+  uuuid:any;
+  constructor(private db: AngularFirestore,
+    public router: Router,
+    private _location: Location,
+     ){
     
   }
-  btnClick= function () {
+  onClickMe= function () {
+    this.uuuid = ((document.getElementById("form-control-6") as HTMLInputElement).value);
     this.router.navigate(['../../StdUsrProfile']);
     };
   
@@ -33,7 +38,10 @@ export class SearchCompanyComponent implements OnInit {
 
     this.db.collection('students' ).valueChanges()
     .subscribe(val => console.log(val)); 
-  } 
+  }
+  btnBackUser= function () {
+    this._location.back();
+  }; 
     
   
 
