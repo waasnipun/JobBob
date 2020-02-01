@@ -21,6 +21,15 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
 import { FormsModule } from '@angular/forms';
 
+// needed for auto complete
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+//material functions
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+
+
 // Auth service
 import { AuthService } from "./shared/services/auth.service";
 import { EditprofileComponent } from './editprofile/editprofile.component';
@@ -46,7 +55,10 @@ import { SearchComponent } from './search/search.component';
     AngularFireAuthModule,
     AngularFirestoreModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    MatAutocompleteModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
