@@ -38,6 +38,7 @@ import { CompanyDashboardComponent } from './company-dashboard/company-dashboard
 import { EditProfileCompanyComponent } from './edit-profile-company/edit-profile-company.component';
 import { SearchCompanyComponent } from './search-company/search-company.component';
 import { SignupcompanyComponent } from './signupcompany/signupcompany.component';
+import { StdUsrProfileComponent } from './std-usr-profile/std-usr-profile.component';
 
 
 @NgModule({
@@ -54,6 +55,7 @@ import { SignupcompanyComponent } from './signupcompany/signupcompany.component'
     EditProfileCompanyComponent,
     SearchCompanyComponent,
     SignupcompanyComponent,
+    StdUsrProfileComponent,
     
   ],
   imports: [
