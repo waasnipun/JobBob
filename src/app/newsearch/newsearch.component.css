@@ -3,6 +3,10 @@
   }
 
  #select {
-    height: 200px;
-    background-color: powderblue;
+    height: 100px;
+  }
+
+  #intdiv {
+    display: flex;
+    justify-content: center;
   }

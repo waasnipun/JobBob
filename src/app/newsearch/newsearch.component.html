@@ -27,39 +27,37 @@
 
   </div>
 
-<div>
-this is new divide
-</div>
-
 <div id='select' >
 
-  <!-- <div style="width: 40%; float:left" >
-    Select your interest :
-    <select [(ngModel)]="family" (change)="filterExact('family', family)">
-      <option value="bird">Bird</option>
-      <option value="mammal">Mammal</option>
-      <option value="fish">Fish</option>
-    </select>
-    filter remove button ????
-    <button *ngIf="family" (click)="removeFilter('family')"> Remove filter </button>
- </div> -->
- 
- <!-- <div style="width: 60%; float:right">
-    #right start here
-    #text type filter boxx
-    <input type="text"
-    [(ngModel)]="weight"
-    (change)="filterGreaterThan('weight', weight)">
+  <div style="width: 40%; float:left" >
 
-weight remove filter button?/
-<button *ngIf="weight" (click)="removeFilter('weight')">Remove filter</button>
+    <div style="width: 30%; float:left"></div>
 
- </div> -->
- <input type="text" class="form-control" [(ngModel)]="searchValue" [ngModelOptions]="{standalone: true}" placeholder="Search by name..." (keyup)="searchByName()">
+    <div id='intdiv'>
       
+    Select your interest :
+    <select [(ngModel)]="interest" (change)="searchByInt()">
+      <option value="">All</option>
+      <option value="software">Software</option>
+      <option value="electronics">Electronics</option>
+      <option value="cybersecurity">Cybersecurity</option>
+    </select>
+    </div>
+
+    <!-- filter remove button ????
+    <button *ngIf="family" (click)="removeFilter('family')"> Remove filter </button> -->
+
+  </div>
+ 
+ <div style="width: 40%; float:left">
+    Search by company name
+    <input type="text" class="form-control" [(ngModel)]="searchValue" [ngModelOptions]="{standalone: true}" placeholder="Enter company name..." (keyup)="searchByName()">
+
+  </div>
+       
 </div>
 
-<div>
+<!-- <div>
   <ul>   
     <li  *ngFor = "let student of students">
 
@@ -67,4 +65,29 @@ weight remove filter button?/
 
     </li>
   </ul>
+</div> -->
+
+<div class="list-group users-list">
+  <div *ngFor="let student of students" class="list-group-item list-group-item-action flex-column align-items-start">
+    <div class="row">
+      <!-- <div class="col col-md-2 image-col">
+        <img class="image" [src]="item.payload.doc.data().avatar">
+      </div> -->
+      <div class="col col-md-4 text-col">
+        <h5 class="mb-1">{{student.companyName}} </h5>
+        <small>location: {{student.Address}}</small>
+      </div>
+
+      <div class="col col-md-7 text-col">
+        <small>Oportunities : {{student.Op}} </small>
+      </div>
+
+      <div class="col col-md-1 actions-col">
+        <button class="btn btn-outline-primary action" (click)="viewDetails(item)" type="button">
+          Visit
+        </button>
+      </div>
+    </div>
+
+  </div>
 </div>

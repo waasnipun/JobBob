@@ -39,11 +39,8 @@ import { CompanyDashboardComponent } from './company-dashboard/company-dashboard
 import { EditProfileCompanyComponent } from './edit-profile-company/edit-profile-company.component';
 import { SearchCompanyComponent } from './search-company/search-company.component';
 import { SignupcompanyComponent } from './signupcompany/signupcompany.component';
-<<<<<<< HEAD
 import { NewsearchComponent } from './newsearch/newsearch.component';
-=======
 import { StdUsrProfileComponent } from './std-usr-profile/std-usr-profile.component';
->>>>>>> 78d7de07c116813a6908cb3d2c436e08ef49c706
 
 
 @NgModule({
@@ -60,11 +57,8 @@ import { StdUsrProfileComponent } from './std-usr-profile/std-usr-profile.compon
     EditProfileCompanyComponent,
     SearchCompanyComponent,
     SignupcompanyComponent,
-<<<<<<< HEAD
     NewsearchComponent,
-=======
     StdUsrProfileComponent,
->>>>>>> 78d7de07c116813a6908cb3d2c436e08ef49c706
     
   ],
   imports: [
