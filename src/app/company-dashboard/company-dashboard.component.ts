@@ -37,7 +37,7 @@ btnClick= function () {
   this.router.navigate(['../../editprofilecompany']);
   };
 btnSearch = function(){
-    this.router.navigate(['../../search']);
+    this.router.navigate(['../../searchCompany']);
   };
 
 getData(){

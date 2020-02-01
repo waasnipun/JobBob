@@ -22,6 +22,7 @@ import { environment } from '../environments/environment';
 import { FormsModule } from '@angular/forms';
 // needed for auto complete
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 
 //material functions
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
@@ -39,6 +40,10 @@ import { SearchCompanyComponent } from './search-company/search-company.componen
 import { SignupcompanyComponent } from './signupcompany/signupcompany.component';
 import {AngularFireStorageModule} from '@angular/fire/storage'
 
+import { NewsearchComponent } from './newsearch/newsearch.component';
+import { StdUsrProfileComponent } from './std-usr-profile/std-usr-profile.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,6 +58,8 @@ import {AngularFireStorageModule} from '@angular/fire/storage'
     EditProfileCompanyComponent,
     SearchCompanyComponent,
     SignupcompanyComponent,
+    NewsearchComponent,
+    StdUsrProfileComponent,
     
   ],
   imports: [
@@ -68,6 +75,7 @@ import {AngularFireStorageModule} from '@angular/fire/storage'
     MatInputModule,
     AngularFireStorageModule,
     
+    HttpClientModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

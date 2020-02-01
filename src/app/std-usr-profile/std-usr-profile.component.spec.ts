@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SearchpageComponent } from './searchpage.component';
+import { StdUsrProfileComponent } from './std-usr-profile.component';
 
-describe('SearchpageComponent', () => {
-  let component: SearchpageComponent;
-  let fixture: ComponentFixture<SearchpageComponent>;
+describe('StdUsrProfileComponent', () => {
+  let component: StdUsrProfileComponent;
+  let fixture: ComponentFixture<StdUsrProfileComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SearchpageComponent ]
+      declarations: [ StdUsrProfileComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SearchpageComponent);
+    fixture = TestBed.createComponent(StdUsrProfileComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

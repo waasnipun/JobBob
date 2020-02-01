@@ -1,44 +1,69 @@
+
 import { Component, OnInit } from '@angular/core';
 import {Location} from '@angular/common';
-
+import { Router } from "@angular/router";
 import { FormControl } from '@angular/forms'; //auto complete
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
 
+import { HttpClient } from '@angular/common/http';
+ 
+import { debounceTime, tap, switchMap, finalize } from 'rxjs/operators';
+ 
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
-  title = 'ng-autocompletesearch';///autoc
-  myControl = new FormControl();                //ac
-  options: string[] = ['One', 'Two', 'Three'];  //ac
-  filteredOptions: Observable<string[]>;
 
-  constructor(private _location: Location) { }
-
-  
+  searchMoviesCtrl = new FormControl();
+  filteredMovies: any;
+  isLoading = false;
+  errorMsg: string;
+ 
+  constructor(
+    public router: Router,
+    private http: HttpClient
+  ) { }
+ 
   ngOnInit() {
-    this.filteredOptions = this.myControl.valueChanges
+    this.searchMoviesCtrl.valueChanges
       .pipe(
-        startWith(''),
-        map(value => this._filter(value))
-      );
-  }
+        debounceTime(50),
+        tap(() => {
+          this.errorMsg = "";
+          this.filteredMovies = [];
+          this.isLoading = true;
+        }),
+        switchMap(value => this.http.get(" http://www.omdbapi.com/?i=tt3896198&apikey=194c9dcf" + value)
+          .pipe(
+            finalize(() => {
+              this.isLoading = false
+            }),
+          )
+        )
+      )
+      .subscribe(data => {
+        if (data['Search'] == undefined) {
+          this.errorMsg = data['Error'];
+          this.filteredMovies = [];
+        } else {
+          this.errorMsg = "";
+          this.filteredMovies = data['Search'];
+        }
  
-  private _filter(value: string): string[] {
-    const filterValue = value.toLowerCase();
- 
-    return this.options.filter(option => option.toLowerCase().includes(filterValue));
-  }
+        console.log(this.filteredMovies);
+      });
+    }
+
+  // btnBackUser= function () {
+  //   this._location.back();
+  // };
 
   btnBackUser= function () {
-    this._location.back();
-  };
-
-
-
+    this.router.navigate(['../../newsearch']);
+    };
 
 }
 
