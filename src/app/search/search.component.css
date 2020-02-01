@@ -1,5 +1,9 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
 button {
-    margin-left: 1000px;  
+    margin-left: 950px;  
   }
+
+  input:focus::placeholder {
+    color: transparent;
+  }  
