@@ -20,7 +20,6 @@ import { AngularFireAuthModule } from "@angular/fire/auth";
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
 import { FormsModule } from '@angular/forms';
-
 // needed for auto complete
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -38,7 +37,7 @@ import { CompanyDashboardComponent } from './company-dashboard/company-dashboard
 import { EditProfileCompanyComponent } from './edit-profile-company/edit-profile-company.component';
 import { SearchCompanyComponent } from './search-company/search-company.component';
 import { SignupcompanyComponent } from './signupcompany/signupcompany.component';
-
+import {AngularFireStorageModule} from '@angular/fire/storage'
 
 @NgModule({
   declarations: [
@@ -66,7 +65,9 @@ import { SignupcompanyComponent } from './signupcompany/signupcompany.component'
     FormsModule,
     MatAutocompleteModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    AngularFireStorageModule,
+    
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

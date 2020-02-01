@@ -53,16 +53,22 @@
             <div class="media">
               <!-- <img class="align-self-start mr-5 img-thumbnail rounded-circle" src="{{(user.photoURL) ? user.photoURL : '/assets/dummy-user.png'}}"
                 alt="{{user.displayName}}"> -->
+                
               <div class="media-body">
                 <h1>Hello: <strong>{{(userData.firstName) }}</strong></h1>
                 <p>User ID: <strong>{{userData.uid}}</strong></p>
                 <p>Full Name: <strong>{{userData.firstName }}&nbsp;{{  userData.secondName}}</strong></p>
                 <p>University: <strong>{{userData.university}}</strong></p>
                 <p>Mobile: <strong>{{userData.mobile}}</strong></p>
+                <p>Interested Area: <strong>{{userData.interestedAreas}}</strong></p>
                 <p>Email: <strong>{{userData.email}}</strong></p>
                 <p>Email Verified: <strong>{{userData.emailVerified}}</strong></p>
-                <p>Description: <strong>{{userData.Description}}</strong></p>
-                <p>{{dullVar}}</p>
+                <p>Description: <strong>{{userData.Description}}</strong></p> 
+                <div style="width: 3%; float: left;"><p>CV: </p></div>             
+                <div style="width: 20%; float: left;" *ngIf="profileUrl | async; let downloadSrc" >  
+                  <p><a href="{{downloadSrc}}">click here</a></p> 
+                  <!-- File uploaded: <a [href]="downloadSrc">{{downloadSrc}}</a> --></div>
+                
               </div>
               <button type="button" class="btn btn-primary-outline pull-right" (click)="btnClick();"><i class="fa fa-plus"></i> Edit Profile</button>
               

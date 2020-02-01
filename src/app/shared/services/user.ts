@@ -13,6 +13,7 @@ export class details{
    University: string;
    mobile: string;
    description:string;
+   interestedAreas:any;
 }
 export class company{
    companyName: string;
@@ -21,3 +22,17 @@ export class company{
    mobile: string;
    description:string;
 }
+
+export class Upload {
+
+   $key: string;
+   file:File;
+   name:string;
+   url:string;
+   progress:number;
+   createdAt: Date = new Date();
+ 
+   constructor(file:File) {
+     this.file = file;
+   }
+ }

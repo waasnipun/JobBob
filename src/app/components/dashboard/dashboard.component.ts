@@ -4,6 +4,8 @@ import { Router } from "@angular/router";
 import { AngularFirestore } from '@angular/fire/firestore';
 import { User } from 'src/app/shared/services/user';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFireStorageReference, AngularFireUploadTask, AngularFireStorage } from '@angular/fire/storage';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-dashboard',
@@ -14,11 +16,14 @@ export class DashboardComponent implements OnInit {
   userData: any;
   userPrimaryData: User["uid"];
   dullVar: any;
+  ref: AngularFireStorageReference;
+  task: AngularFireUploadTask;
   constructor(
     public authService: AuthService,
     public router: Router,
     public afAuth: AngularFireAuth,
     public ngZone: NgZone,
+    public afStorage:AngularFireStorage,
     public afs: AngularFirestore,
   ) { 
     this.afAuth.authState.subscribe(user => {
@@ -26,7 +31,8 @@ export class DashboardComponent implements OnInit {
     })        
   }
   ngOnInit() {    
-      this.getData();    
+      this.getData(); 
+      this.upload();   
    }
   btnClick= function () {
     this.router.navigate(['../../editprofile']);
@@ -47,5 +53,10 @@ export class DashboardComponent implements OnInit {
       }
     })
   }
-
+  profileUrl: Observable<string>;
+  upload(){
+    const path = `gs://jobbob-468e3.appspot.com`;
+    this.ref = this.afStorage.ref(this.userPrimaryData);
+    this.profileUrl = this.ref.getDownloadURL();
+  }
 }
