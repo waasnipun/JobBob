@@ -12,15 +12,21 @@ import { EditprofileComponent } from '../../editprofile/editprofile.component';
 import { AuthGuard } from "../../shared/guard/auth.guard";
 import { SecureInnerPagesGuard } from "../../shared/guard/secure-inner-pages.guard";
 import { SearchComponent } from 'src/app/search/search.component';
+import { CompanyDashboardComponent } from 'src/app/company-dashboard/company-dashboard.component';
+import { EditProfileCompanyComponent } from 'src/app/edit-profile-company/edit-profile-company.component';
+import { SignupcompanyComponent } from 'src/app/signupcompany/signupcompany.component';
 
 // Include route guard in routes array
 const routes: Routes = [
   { path: '', redirectTo: '/sign-in', pathMatch: 'full'},
   { path: 'sign-in', component: SignInComponent, canActivate: [SecureInnerPagesGuard]},
   { path: 'register-user', component: SignUpComponent,canActivate: [SecureInnerPagesGuard]},
+  { path: 'register-user-company', component: SignupcompanyComponent,canActivate: [SecureInnerPagesGuard]},
   { path: 'dashboard', component: DashboardComponent },
   { path: 'editprofile', component: EditprofileComponent },
   { path: 'search', component: SearchComponent },
+  { path: 'editprofilecompany', component: EditProfileCompanyComponent },
+  { path: 'companydashboard', component: CompanyDashboardComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent, canActivate: [SecureInnerPagesGuard] },
   { path: 'verify-email-address', component: VerifyEmailComponent, canActivate: [SecureInnerPagesGuard] }
 ];

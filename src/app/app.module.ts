@@ -25,6 +25,10 @@ import { FormsModule } from '@angular/forms';
 import { AuthService } from "./shared/services/auth.service";
 import { EditprofileComponent } from './editprofile/editprofile.component';
 import { SearchComponent } from './search/search.component';
+import { CompanyDashboardComponent } from './company-dashboard/company-dashboard.component';
+import { EditProfileCompanyComponent } from './edit-profile-company/edit-profile-company.component';
+import { SearchCompanyComponent } from './search-company/search-company.component';
+import { SignupcompanyComponent } from './signupcompany/signupcompany.component';
 
 
 @NgModule({
@@ -37,6 +41,10 @@ import { SearchComponent } from './search/search.component';
     VerifyEmailComponent,
     EditprofileComponent,
     SearchComponent,
+    CompanyDashboardComponent,
+    EditProfileCompanyComponent,
+    SearchCompanyComponent,
+    SignupcompanyComponent,
     
   ],
   imports: [

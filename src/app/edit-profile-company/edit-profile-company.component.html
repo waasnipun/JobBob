@@ -1,0 +1,142 @@
+<nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+    <a class="navbar-brand col-sm-3 col-md-2 mr-0" routerLink="/register-student">
+      <img class="brand-logo" src="assets/logo-JobBoB.svg" alt="positronX.io Logo"> 
+      <span class="dasboard-text">Edit Profile</span>
+    </a>
+  </nav>
+<p>editprofile works!</p>
+<div class="container-fluid">
+    <div class="row">
+  
+      <!-- <nav class="col-md-2 d-md-block bg-light sidebar">
+        <div class="sidebar-sticky">
+          <ul class="nav flex-column">
+            
+            <!-- <li class="nav-item">
+              <a class="nav-link" routerLink="/sign-up">
+                <i class="fas fa-user"></i>Edit Profile
+              </a>
+            </li> -->
+            <!-- Calling SignOut() Api from AuthService -->
+            <!-- <li class="nav-item">
+              <a class="nav-link" (click)="authService.SignOut()">
+                <i class="fas fa-sign-out-alt"></i>Log out
+              </a>
+              </li>
+            </ul>
+          </div>
+        </nav>   --> -->
+  
+      <!-- Main content -->
+      
+        <main>
+       
+        <div class="inner-adjust">  
+          <div class="pt-3 pb-2 mb-3 border-bottom">
+            <h1 class="h2">Edit Profile         
+            <button type="button" class="btn btn-primary" (click)="btnBackUser();"><i class="flex-md-nowrap"></i> Back</button>
+              </h1>   
+            </div>         
+        </div>
+        <!-- edit user details column -->
+        <div class="col-md-8"> 
+          <form class="form-horizontal"  (ngSubmit)="onClickMe()" >                    
+            
+                <div class="form-group">
+                    <div class="row">
+                    <label class="col-sm-3 control-label" for="form-control-6">User ID</label>
+                    <div class="col-sm-9">
+                        <input id="form-control-6" class="form-control" type="text" placeholder="{{userPrimaryData}}" disabled="disabled">
+                    </div>
+                    </div>
+                </div>
+              
+             
+         
+            <div class="form-group">
+                <div class="row">
+                    <label class="col-sm-3 control-label" for="form-control-1 ">Company Name</label>
+                    <div class="col-sm-9">
+                    <input name="companyName" id="form-control-1" class="form-control" type="text"   [(ngModel)]="companyName">
+                    </div>
+                </div>
+            </div>   
+
+          <div class="form-group">
+            <div class="row">
+              <label class="col-sm-3 control-label" for="form-control-2">Address</label>
+              <div class="col-sm-9">
+                <input name="Address" id="form-control-2" class="form-control" type="text"  [(ngModel)]="Address">
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="row">
+              <label class="col-sm-3 control-label" for="form-control-3">Field</label>
+              <div class="col-sm-9">
+                <input name="Op" input id="form-control-3" class="form-control" type="text" required [(ngModel)]="Op" >
+              </div>
+            </div>
+          </div>
+
+          <!-- <div class="form-group">
+            <div class="row">
+              <label class="col-sm-3 control-label" for="form-control-10">Interested Areas<span class="panel-subtitle">(Select Multiple Items)</span></label>
+              <div class="col-sm-9">
+                <select id="form-control-10" input name="interestedAreas" class="form-control" multiple="multiple">
+                  <option value="Software">Software</option>
+                  <option value="electronics">electronics</option>
+                  <option value="machine learning">machine learning</option>
+                  <option value="telecommunication">telecommunication</option>
+                  <option value="web developing">web developing</option>
+                  <option value="networking">networking</option>
+                  <option value="cyber security">cyber security</option>
+                </select>
+              </div>
+            </div>
+          </div> -->
+          <div class="form-group">
+            <div class="row">
+              <label class="col-sm-3 control-label" for="form-control-9">Mobile Number</label>
+              <div class="col-sm-9">
+                <input name="mobile" input id="form-control-9" class="form-control" type="text" required [(ngModel)]="mobile" >
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="row">
+              <label class="col-sm-3 control-label" for="form-control-8">Description</label>
+              <div class="col-sm-9">
+                <textarea id="form-control-8" input name="Description" class="form-control" placeholder="{{Description}}" rows="3" [(ngModel)]="Description" ></textarea>
+              </div>
+            </div>
+          </div>   
+          <h2 class="h2">
+            <button type="button" class="btn btn-primary" (click)="onClickMe();"><i class="flex-md-nowrap"></i> Submit</button> 
+          </h2>
+          
+          
+<!--           
+        <div class="submit-button">
+          <button mat-flat-button color="primary" type="submit" (click)="onClickMe();">Submit</button>
+          <label style="text-align:left;color:black;">{{key}}</label>
+        </div>   -->
+    </form>
+  </div>
+   
+      <!-- <div class="submit-button">
+        <button mat-flat-button color="primary" type="submit" >Submit</button>
+        <label style="text-align:center;color:black;">{{key}}</label>
+      </div>  -->
+    
+    </main>
+    </div>    
+  </div>
+  <!-- <div [hidden]="!submitted">
+    <h4>You submitted successfully! </h4>
+  </div> -->
+
+
+
+
+  

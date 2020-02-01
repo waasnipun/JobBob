@@ -14,3 +14,10 @@ export class details{
    mobile: string;
    description:string;
 }
+export class company{
+   companyName: string;
+   Address: string;
+   Op: string;
+   mobile: string;
+   description:string;
+}

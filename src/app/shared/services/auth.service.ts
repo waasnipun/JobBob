@@ -45,7 +45,17 @@ export class AuthService {
         window.alert(error.message)
       })
   }
-
+  SignInCompany(email, password) {
+    return this.afAuth.auth.signInWithEmailAndPassword(email, password)
+      .then((result) => {
+        this.ngZone.run(() => {
+          this.router.navigate(['companydashboard']);
+        });
+        //this.SetUserData(result.user);
+      }).catch((error) => {
+        window.alert(error.message)
+      })
+  }
   // Sign up with email/password
   SignUp(email, password) {
     return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
@@ -58,7 +68,17 @@ export class AuthService {
         window.alert(error.message)
       })
   }
-
+  SignUpCompany(email, password) {
+    return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
+      .then((result) => {
+        /* Call the SendVerificaitonMail() function when new user sign 
+        up and returns promise */
+        this.SendVerificationMail();
+        this.SetUserDataCompany(result.user);
+      }).catch((error) => {
+        window.alert(error.message)
+      })
+  }
   // Send email verfificaiton when new user sign up
   SendVerificationMail() {
     return this.afAuth.auth.currentUser.sendEmailVerification()
@@ -89,6 +109,24 @@ export class AuthService {
   provider in Firestore database using AngularFirestore + AngularFirestoreDocument service */
   SetUserData(user) {
     const userRef: AngularFirestoreDocument<any> = this.afs.doc(`students/${user.uid}`);
+    const userData: User = {
+      uid: user.uid,
+      email: user.email,
+      displayName: user.displayName,
+      photoURL: user.photoURL,
+      emailVerified: user.emailVerified,
+      //ghg: user.ghg,
+      //firstName: user.firstName,
+      // secondName:user.secondName,
+      // instituteName:user.instituteName,
+      // companyType:user.companyType
+    }
+    return userRef.set(userData, {
+      merge: true
+    })
+  }
+  SetUserDataCompany(user) {
+    const userRef: AngularFirestoreDocument<any> = this.afs.doc(`company/${user.uid}`);
     const userData: User = {
       uid: user.uid,
       email: user.email,
