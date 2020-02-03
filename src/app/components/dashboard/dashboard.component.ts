@@ -38,7 +38,7 @@ export class DashboardComponent implements OnInit {
     this.router.navigate(['../../editprofile']);
     };
   btnSearch = function(){
-      this.router.navigate(['../../search']);
+      this.router.navigate(['../../newsearch']);
     };
 
   getData(){

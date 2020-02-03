@@ -2,6 +2,7 @@ import { Component, OnInit,Injectable } from '@angular/core';
 import { NgModule } from '@angular/core';
 // import { FirebaseService } from '../services/firebase.service';
 ///fixx loc
+import {Location} from '@angular/common';
 import { Router } from "@angular/router";
 import { AngularFirestore  } from '@angular/fire/firestore';
 
@@ -26,7 +27,8 @@ export class NewsearchComponent implements OnInit {
 
   constructor(
     public router: Router,
-    private db: AngularFirestore
+    private db: AngularFirestore,
+    private _location: Location
   ) { }
 
   ngOnInit() {
@@ -118,8 +120,8 @@ export class NewsearchComponent implements OnInit {
 
     
   }
-
   btnBackUser= function () {
-    this.router.navigate(['../../newsearch']);
-    };
+    this._location.back();
+  };
+ 
 }

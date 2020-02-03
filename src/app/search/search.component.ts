@@ -24,9 +24,13 @@ export class SearchComponent implements OnInit {
  
   constructor(
     public router: Router,
-    private http: HttpClient
+    private http: HttpClient,
+    private _location: Location
   ) { }
- 
+  btnBackUser= function () {
+    this._location.back();
+  };
+
   ngOnInit() {
     this.searchMoviesCtrl.valueChanges
       .pipe(
@@ -61,9 +65,6 @@ export class SearchComponent implements OnInit {
   //   this._location.back();
   // };
 
-  btnBackUser= function () {
-    this.router.navigate(['../../newsearch']);
-    };
-
+  
 }
 

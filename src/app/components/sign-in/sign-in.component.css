@@ -1,8 +1,8 @@
 .column {
     position: center;
     width: 50%;
-    padding: 100px;
-    height: 400px; /* Should be removed. Only for demonstration */
+    padding: 30px;
+    height: 100%; /* Should be removed. Only for demonstration */
   }
   
   /* Clear floats after the columns */

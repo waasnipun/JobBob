@@ -10,7 +10,7 @@
     "rules": "storage.rules"
   },
   "hosting": {
-    "public": "dist\\angularfirebase-authentication",
+    "public": "dist/angularfirebase-authentication",
     "ignore": [
       "firebase.json",
       "**/.*",

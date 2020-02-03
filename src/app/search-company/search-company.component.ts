@@ -15,11 +15,14 @@ import {Location} from '@angular/common';
 export class SearchCompanyComponent implements OnInit {
   students : any[];
   dictionary: {  } ;
-  constructor(private db: AngularFirestore,public router: Router,private _location: Location){
+  constructor(private db: AngularFirestore,public router: Router,private _location: Location,){
     
   }
   btnClick= function () {
     this.router.navigate(['../../StdUsrProfile']);
+    };
+    btnBackUser= function () {
+      this._location.back();
     };
   
   ngOnInit() {

@@ -1,0 +1,12 @@
+#back {
+    margin-left: 950px;  
+  }
+
+ #select {
+    height: 100px;
+  }
+
+  #intdiv {
+    display: flex;
+    justify-content: center;
+  }
