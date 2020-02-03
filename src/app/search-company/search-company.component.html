@@ -4,23 +4,44 @@
       <span class="dasboard-text">Dashboard</span>
     </a>
   </nav>
-
+  
   <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
     <div class="inner-adjust">
+      <form class="form-horizontal"  (ngSubmit)="onClickMe()" >  
+
+
 
       <div class="pt-3 pb-2 mb-3 border-bottom">
         <h1>Student names</h1>
         <button id='back' type="button" class="btn btn-primary" (click)="btnBackUser();"><i class="flex-md-nowrap"></i> Back</button>
       <ul>   
         <li  *ngFor = "let student of students">
-          <h1>{{student.id}}</h1>
+          <!-- <h1>{{student.uid}}</h1> -->
           <!-- <button type="button">{{ student.firstName }} &nbsp;{{student.secondName}}</button> -->
-          <button type="button" class="btn btn-primary" (click)="btnClick();"><i class="flex-md-nowrap"></i> {{ student.firstName }} {{student.secondName}}</button>
+          <!-- <input  type="button" class="btn btn-primary" (click)="btnClick(student);"><i class="flex-md-nowrap"></i> {{ student.firstName }} {{student.secondName}}</input> -->
+          <button type="button"  class="btn btn-primary" (click)="onClickMe();"><i class="flex-md-nowrap"></i>  {{ student.firstName }} {{student.secondName}}</button> 
+
+          <div class="form-group">
+            <div class="row">
+            <label class="col-sm-3 control-label" for="form-control-6"></label>
+            <div class="col-sm-9">
+                <input hidden id="form-control-6" class="form-control" type="text" disabled="disabled"placeholder="{{student.uid}}">
+            </div>
+            </div>
+          </div>
           <!-- </a> -->
-          <p></p>
-          <!-- {{ student.firstName }} &nbsp;{{student.secondName}} -->
+       
         </li>
       </ul>
       </div>
+      </form>
     </div>
   </main>
+
+  <div class="inner-adjust">  
+    <div class="pt-3 pb-2 mb-3 border-bottom">
+      <!-- <h1 class="h2">Edit Profile          -->
+      <button type="button" id="back"  class="btn btn-primary" (click)="btnBackUser();"><i class="flex-md-nowrap"></i> Back</button>
+        
+      </div>         
+  </div>
